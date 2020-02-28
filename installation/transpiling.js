@@ -11,6 +11,7 @@
  */
 const config = require( './config' )
 const fs = require( 'fs' )
+const {exec, nextTick } = require( 'process' )
 const { spawn } = require('child_process')
 const clc = require( 'cli-color' )
 
@@ -24,11 +25,21 @@ const clc = require( 'cli-color' )
 // 		touch .babelrc
 // fi
 
-let path = ''
+let FILE_PATH = ''
+let FILE_CONTENTS = ''
+const RESOURCE_PATH
+
+let exec = process.execSync( 'curl RESOURCE_PATH' ).stdout.on( 'data', ( err, data ) => {
+	if err throw err
+
+	FILE_CONTENTS = data
+
+} )
+
 
 if ( ! fs.existsSync( PATH ) ) {
 
-	fs.writeFile( PATH, '', ( err ) => {
+	fs.writeFile( PATH, data, ( err ) => {
 		if ( err ) throw err
 
 	} )
@@ -43,7 +54,6 @@ let exec = spawn( 'npm install npm install @babel/core babel-loader @babel/prese
 let err = ( status_code ) => {
 	console.log()	
 }
-
 
 exec.stdout.on( 'data', () => {} )
 exec.stderr.on( 'data', () => {} )
