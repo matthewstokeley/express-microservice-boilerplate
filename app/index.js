@@ -15,10 +15,10 @@ var app = express()
 
 
 /*  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- *  Script
+ *  Application Lifecycle
+ *  @todo encapsulate with a more robust hooks pattern
+ *  
  */
-
-//  run application lifecycle configuration before route declaration
 
 config.init( app )
 
@@ -29,8 +29,6 @@ let routes = [
 for ( let i = 0; i < routes.length; i++) {
 	app.use( ROUTE + VERSION, require('./api' + routes[ i ] ) )
 }
-
-//  run application lifecycle configuration after route declaration
 
 config.handleErrors( app )
 
