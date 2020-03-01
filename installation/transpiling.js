@@ -18,13 +18,8 @@ const clc = require( 'cli-color' )
 
 
 /**
- * Scaffold of a config file mdoule
+ * Scaffold of a config file module
  */
-
-// if [ -f FILENAME ]
-// 	then
-// 		touch .babelrc
-// fi
 
 const FILE_PATH = ''
 const RESOURCE_PATH
@@ -37,7 +32,7 @@ let file_contents = ''
 // @todo remove functions to keep the script feel
 
 fs.access( PATH, fs.constants.F_OK | fs.constants.W_OK, ( err ) => {
-	events.emit( '', err )
+	if err throw error(err)
 } )
 
 events.addEventListener( '', ( fileExists ) => {
@@ -53,10 +48,15 @@ events.addEventListener( '', ( fileExists ) => {
 	} )
 }
 
+// populate from a .env file
+//process.exec( "touch output.txt && sed -e '/^$/d" "$1" >> output.txt )
+
+process.exec( "sed /awk '{print $1}' secret.env/awk '{print $2}' secret.env/ $FILE_PATH " )
 
 /**
  * 
  */
+
 let exec = spawn( 'npm install npm install @babel/core babel-loader @babel/preset-env @babel/preset-modules', 
 	[ '--save-dev' ] )
 
@@ -64,7 +64,11 @@ let err = ( status_code ) => {
 	console.log()	
 }
 
-exec.stdout.on( 'data', () => {} )
+exec.stdout.on( 'data', () => {
+
+	console.log( '' ) 
+
+} )
 exec.stderr.on( 'data', () => {} )
 exec.on( 'close', () => {} )
 
