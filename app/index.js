@@ -10,8 +10,8 @@ const VERSION = '/1.0.0'
  */
 
 var express = require( 'express' )
-var config = require( './config' )
-var app = express()
+,   config = require( './config' )
+,   app = express()
 
 
 /*  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
