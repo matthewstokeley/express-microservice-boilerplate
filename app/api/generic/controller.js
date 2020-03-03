@@ -7,10 +7,10 @@ interface GetController {
 }
 
 /*  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- *  Constants Declaration
+ *  Constants Expressions
  */
 
-const Controller:GetController = {}
+const Controller: GetController = {}
 
 /*  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  *  Module Declaration
@@ -53,7 +53,7 @@ CONTROLLER.get: GetController = function(
 }
 
 /*  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- *  Module Exports Declaration
+ *  Module exports expression
  */
 
 module.exports = Controller;

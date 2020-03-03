@@ -1,11 +1,11 @@
 /*  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- *  Module Declarations
+ *  Module Expressions
  */
 
 var Joi = require('joi');
 
 /*  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- *  Object Declaration
+ *  Object Expression
  *  @todo add typescript decorators
  */
 
@@ -31,7 +31,7 @@ var page = {
 };
 
 /*  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- *  Module Exports Declaration
+ *  Module Export Expression
  */
 
 module.exports = page;

@@ -12,6 +12,7 @@
   "dependencies": {
     "@types/node": "^13.7.1",
     "express": "^4.17.1",
+    "joi-typescript-validator": "0.0.9",
     "mysql": "^2.18.1"
   },
   "devDependencies": {

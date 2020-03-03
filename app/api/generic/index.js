@@ -1,12 +1,12 @@
 /*  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- *  Constants Declaration
+ *  Constants
  */
 
 const ROUTE = './api'
 const VERSION = '/1.0.0'
 
 /*  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- *  Module Declaration
+ *  Module Expression
  */
 
 var router = require("express").Router()
@@ -17,7 +17,7 @@ var router = require("express").Router()
 ,   view = require('/view')
 
 /*  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- *  Route Expression
+ *  Route Declaration
  */
 
 router.get(
@@ -28,7 +28,7 @@ router.get(
 );
 
 /*  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- *  Module Declaration
+ *  Module Expression
  */
 
 module.exports = router;
