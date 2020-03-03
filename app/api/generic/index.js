@@ -13,7 +13,7 @@ var router = require("express").Router()
 ,   parse = require("body-parser").json()
 ,   validate = require('express-joi-validator')
 ,   page = require('./model')
-,   routerController = require('./controller')
+,   controller  = require('./controller')
 ,   view = require('/view')
 
 /*  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
