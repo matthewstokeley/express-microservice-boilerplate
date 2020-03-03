@@ -9,12 +9,12 @@ const VERSION = '/1.0.0'
  *  Module Declaration
  */
 
-var router = require("express").Router();
-var parse = require("body-parser").json();
-var validate = require('express-joi-validator');
-var page = require('./model');
-var routerController = require('./controller');
-var view = require('/view');
+var router = require("express").Router()
+,   parse = require("body-parser").json()
+,   validate = require('express-joi-validator')
+,   page = require('./model')
+,   routerController = require('./controller')
+,   view = require('/view')
 
 /*  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  *  Route Expression

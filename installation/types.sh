@@ -82,15 +82,18 @@ if [ -d .storybook ]
 fi
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# Snapshot Test=s
+# Snapshot Tests
 
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Unit Tests
 
 # Jest support
-
-npm install --save-dev ts-jest
+# 
+if [ -f jest.config.js ]
+	then
+		npm install --save-dev ts-jest
+fi
 
 # Karma support
 
@@ -104,6 +107,11 @@ npm install --save-dev ts-jest
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Regression Tests
 
-# Selenium Support
+# Webdriver / Selenium Support
+
+if [ -f wdio.config.js ]
+	then
+		npm install --save-dev wdio-typescript-service
+
 
 # Puppeteer Support
