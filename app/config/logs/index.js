@@ -2,7 +2,7 @@ var winston = require('winston');
 var join = require('path').join;
 
 var config = {
-    path: ''
+    path: './../logs'
 }
 
 var logsDir = join( __dirname, config.path );
@@ -28,6 +28,7 @@ var logger = new winston.Logger({
 });
 
 module.exports = logger;
+
 module.exports.stream = {
     write: function(message, encoding) {
         logger.info(message);

@@ -15,6 +15,12 @@ request:
         body:
             # @type {Int}
             token: Joi.string().required()
+    # @type {Object}
+    post:
+        # @type {Object}
+        body:
+            # @type {String}
+            formData: Joi.string()
     
 #  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #  Export Expression

@@ -28,6 +28,7 @@ var query = require( 'query' )
  */
 
 /**
+ * 
  *  @param  {Request}
  *  @param  {Object}
  *  @param  {Function}
@@ -56,6 +57,7 @@ controller.get : controller = function (
 }
 
 /**
+ * 
  *  @param  {Request}
  *  @param  {Res}
  *  @param  {Next}
