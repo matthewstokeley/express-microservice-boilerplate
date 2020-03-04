@@ -19,16 +19,16 @@ const depenndencies = require( './package.json' ).dependencies
 
 
 /*  ~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-
- *  Handle  the configuration file
+ *  Handle the configuration file
  */
 
 const FILE_PATH = ''
-const RESOURCE_PATH = '.babelrc'
+const CONFIG_FILE = '.babelrc'
+const CONFIG_PERM = fs.constants.F_OK | fs.constants.W_OK
 let file_contents = ''
 
-fs.access( PATH, fs.constants.F_OK | fs.constants.W_OK, ( err ) => {
-	if err throw error(err)
-} )
+
+let file = fs.access( CONFIG_FILE, CONFIG_PERM, ( err ) => { } )
 
 events.addEventListener( '', ( fileExists ) => {
 
@@ -38,19 +38,27 @@ events.addEventListener( '', ( fileExists ) => {
 	// @todo replace with the http module
 	let exec = spawn( 'curl ${ RESOURCE_PATH } >> ${ PATH } ' )
 
+	// populate from a .env file
+	// process.exec( "touch output.txt && sed -e '/^$/d" "$1" >> output.txt )
+	// @todo
+	spawn( "sed /awk '{print $1}' secret.env/awk '{print $2}' secret.env/ $FILE_PATH " )
+
 	exec.stdout.on( 'data', ( err, data ) => {
 		if err throw err
 	} )
 }
 
+
 /*  ~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-
  *  Spawn out our installation task 
  */
 
-// populate from a .env file
-// process.exec( "touch output.txt && sed -e '/^$/d" "$1" >> output.txt )
-// @todo
-spawn( "sed /awk '{print $1}' secret.env/awk '{print $2}' secret.env/ $FILE_PATH " )
+// we can add a dependency management workflow here, 
+// to be able to manage dependencies modularly by domain of concern
+// 
+// we can also add this to our qa pipeline as part of ci/cd later
+
+let depManagement = spawn( './dependency-management.sh' )
 
 let deps = []
 
@@ -58,6 +66,7 @@ for ( let prop of dependencies ) {
 
 	for ( let i = 0; i < dependencies[ prop ].length; i++ ) {
 		let _char = dependencies[ prop ][ i ]
+
 		if ( typeof _char === 'string') {
 
 			if  ( _char === '^' ) {
@@ -85,8 +94,9 @@ exec.stderr.on( 'data', status_code )
 exec.on( 'close', () => {} )
 
 
-
-// Add Gulp Task
+/*  ~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-
+ *  Write a gulp task
+ */
 
 process.exec( 'touch gulpfile.js && echo "gulp.task( "transpile", () => { gulp.pipe("./app/").babel().dest() } )" >> gulpfile.json' )
 
