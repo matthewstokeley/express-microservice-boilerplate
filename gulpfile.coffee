@@ -13,16 +13,20 @@ coffeelint = require 'gulp-coffeelint'
 
 task.task 'lint' () ->
 	
-	linter
+	linter = eslint
 
 	switch config.syntax
 		case 'typescript'
-			lint = tslint
+			linter = tslint
 			break
+
 		case 'coffeescript'
-			lint = coffeelint
+			linter = coffeelint
+			break
+
 		case 'javascript'
-			lint = eslint
+			linter = eslint
+			break
 
 	task.src config.app.src
 	task.pipe linter

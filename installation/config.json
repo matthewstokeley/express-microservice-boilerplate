@@ -1,0 +1,14 @@
+{
+	"tasks": {
+		"runner": "gulp"
+	},
+	"lint": {
+		"linter": ["tslint", "eslint"]
+	},
+	"format": {
+
+	},
+	"report": {
+		"reporter": "allure"
+	}
+}
